@@ -24,7 +24,7 @@ header h1{
 }
 .container{
 
-    overflow: hidden;
+   
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -51,6 +51,9 @@ header h1{
     justify-content: center;
 
  
+}
+.cell{
+    border: solid;
 }
 @media only screen and (max-width: 600px) {
     .menu ,.grid {
