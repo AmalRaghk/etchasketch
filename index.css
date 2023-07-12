@@ -41,6 +41,10 @@ header h1{
     display: flex;
     align-items: center;
     margin:2vw;
+    font-size: 1.5vh;
+}
+.colorLabel{
+    margin: 1vw;
 }
 .matrix{
    
