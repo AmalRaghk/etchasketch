@@ -5,7 +5,7 @@ const colorPick=document.querySelector('.colorPick');
 const size=document.querySelector('.size');
 const grid=document.querySelector('.grid');
 const colorPicker = document.querySelector("#colorPicker");
-
+const sizeChoose =document.querySelector('#sizeChoose');
 let row=30;
 let column=30;
 
@@ -15,30 +15,54 @@ let click=false;
 colorPicker.onclick=()=>{
   click=false;
 }
-function draw(row,column){
-    grid.style.gridTemplateColumns = `repeat(${column}, 1fr)`
-    grid.style.gridTemplateRows = `repeat(${row}, 1fr)`
-  
+let isDrawing = false;
+let isErasing = false;
+
+grid.addEventListener('mousedown', () => {
+    isDrawing = true;
+});
+
+grid.addEventListener('mouseup', () => {
+    isDrawing = false;
+});
+
+grid.addEventListener('mouseleave', () => {
+    isDrawing = false;
+});
+
+eraser.addEventListener('click', () => {
+    isErasing = !isErasing;
+});
+
+function draw(row, column) {
+    grid.style.gridTemplateColumns = `repeat(${column}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${row}, 1fr)`;
+
     for (let i = 0; i < row; i++) {
-      for (let j=0;j<column;j++){
-      const cell = document.createElement('div');
-      cell.classList.add('cell');
-      cell.onclick=()=>{
-        if(!click){
-        color=colorPicker.value;
+        for (let j = 0; j < column; j++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            cell.addEventListener('mouseover', () => {
+                if (isDrawing || isErasing) {
+                    cell.style.backgroundColor = isErasing ? '#FFFFFF' : colorPicker.value;
+                }
+            });
+            cell.addEventListener('mousedown', () => {
+                cell.style.backgroundColor = isErasing ? '#FFFFFF' : colorPicker.value;
+            });
+            grid.appendChild(cell);
         }
-      cell.style.backgroundColor=color;
-      }
-      cell.style.backgroundColor=color;
-      cell.setAttribute('id',k);
-      grid.appendChild(cell);
-      k++;
-      }
     }
 }
-function eraserfunction(){
-  click=true;
-  color='#FFFFFF'
-}
+
+
+sizeChoose.addEventListener('change', () => {
+  row = sizeChoose.value;
+  column = sizeChoose.value;
+  grid.innerHTML = '';
+  draw(row, column);
+});
+
+
 draw(row,column);
 

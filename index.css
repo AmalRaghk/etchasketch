@@ -37,12 +37,21 @@ header h1{
     justify-content: space-evenly;
 }
 .eraser,.colorPick,.size{
-    font-size: 1vw;
     display: flex;
     align-items: center;
     margin:2vw;
     font-size: 1.5vh;
 }
+.colorPick input{
+    width:5vh;
+    height:5vh;
+}
+.size input{
+    width:5vh;
+    height:5vh;
+
+}
+
 .colorLabel{
     margin: 1vw;
 }
@@ -81,11 +90,7 @@ header h1{
         flex-direction: column;
         justify-content: space-around;
     }
-    .menu button{
-        min-width: 30vw;
-        font-size: 1.5vh;
-
-    }
+    
     
   }
   
