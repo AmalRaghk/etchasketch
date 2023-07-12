@@ -10,11 +10,6 @@ let row=30;
 let column=30;
 
 let k=0;
-let color='#FFFFFF';
-let click=false;
-colorPicker.onclick=()=>{
-  click=false;
-}
 let isDrawing = false;
 let isErasing = false;
 
@@ -32,6 +27,7 @@ grid.addEventListener('mouseleave', () => {
 
 eraser.addEventListener('click', () => {
     isErasing = !isErasing;
+    
 });
 
 function draw(row, column) {
