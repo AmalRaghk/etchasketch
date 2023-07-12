@@ -7,7 +7,7 @@
 body{
     padding: 0%;
     margin: 0%;
-    overflow: hidden;
+   
     
     
 }
@@ -26,38 +26,60 @@ header h1{
 
    
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-
-
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .menu{
-    width:20vw;  
-    height: 50vh;
+    height:20vh;  
     display: flex;
-    flex-direction: column;
-    
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-evenly;
 }
 .eraser,.colorPick,.size{
-    width: 100%;
+    font-size: 1vw;
+    display: flex;
+    align-items: center;
+    margin:2vw;
+}
+.matrix{
+   
+    padding: 0%;
+    margin: 0%;
+    height:60vh;
+    width:60vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .grid{
-    width: 80vw;
-    display: flex;
-    justify-content: center;
-
- 
+    display: grid;
+    height: 100%;
+    width: 80%;
 }
 .cell{
-    border: solid;
+    user-select: none;
+    border:solid 0.01vw;
 }
 @media only screen and (max-width: 600px) {
-    .menu ,.grid {
-        width:100vw;
+    .container{
+        height:100vh;
+    }
+    .matrix {
+        width:70vw;
+        height:70vw;
+    }
+    .menu{
+        width: 70vw;
+        height: 20vh;
+        display: flex;
+        flex:wrap;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .menu button{
+        min-width: 30vw;
+        font-size: 1.5vh;
 
     }
     
