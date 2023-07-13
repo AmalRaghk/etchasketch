@@ -1,15 +1,15 @@
-const container=document.querySelector('.conatiner');
-const menuu=document.querySelector('.menu');
-const eraser=document.querySelector('.eraser');
-const colorPick=document.querySelector('.colorPick');
-const size=document.querySelector('.size');
-const grid=document.querySelector('.grid');
+const container = document.querySelector('.conatiner');
+const menuu = document.querySelector('.menu');
+const eraser = document.querySelector('.eraser');
+const colorPick = document.querySelector('.colorPick');
+const size = document.querySelector('.size');
+const grid = document.querySelector('.grid');
 const colorPicker = document.querySelector("#colorPicker");
-const sizeChoose =document.querySelector('#sizeChoose');
-let row=30;
-let column=30;
+const sizeChoose = document.querySelector('#sizeChoose');
+let row = 30;
+let column = 30;
 
-let k=0;
+let k = 0;
 let isDrawing = false;
 let isErasing = false;
 
@@ -27,9 +27,11 @@ grid.addEventListener('mouseleave', () => {
 
 eraser.addEventListener('click', () => {
     isErasing = !isErasing;
-    
-});
 
+});
+colorPicker.addEventListener('click',()=>{
+    isErasing =!isErasing;
+});
 function draw(row, column) {
     grid.style.gridTemplateColumns = `repeat(${column}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${row}, 1fr)`;
@@ -53,12 +55,12 @@ function draw(row, column) {
 
 
 sizeChoose.addEventListener('change', () => {
-  row = sizeChoose.value;
-  column = sizeChoose.value;
-  grid.innerHTML = '';
-  draw(row, column);
+    row = sizeChoose.value;
+    column = sizeChoose.value;
+    grid.innerHTML = '';
+    draw(row, column);
 });
 
 
-draw(row,column);
+draw(row, column);
 
